@@ -32,6 +32,7 @@ public class Main extends SceneManager {
         FastJEngine.init("Simple Bullet Hell", new Main());
         FastJEngine.setTargetFPS(15);
         FastJEngine.configureViewerResolution(new Point(640, 360));
+        FastJEngine.configureInternalResolution(new Point(640, 360));
         FastJEngine.run();
     }
 }

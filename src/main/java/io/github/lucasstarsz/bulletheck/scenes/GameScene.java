@@ -47,8 +47,6 @@ public class GameScene extends Scene {
         PlayerHealthBar playerHealthBarScript = new PlayerHealthBar(playerMetadata, this);
         playerHealthBar.addBehavior(playerHealthBarScript, this)
                 .<GameObject>addTag(Tags.PlayerHealthBar, this);
-        // Scale Health bar to account for small game size
-        playerHealthBar.scale(new Pointf(1f), Pointf.Origin);
 
 
         PlayerController playerControllerScript = new PlayerController(5f, 3f);
@@ -63,6 +61,10 @@ public class GameScene extends Scene {
         player.addAsGameObject(this);
         playerHealthBar.addAsGameObject(this);
         playerMetadata.addAsGameObject(this);
+
+        // scale all content down by 50%
+        player.scale(new Pointf(-0.5f), Pointf.Origin);
+        playerHealthBar.scale(new Pointf(-0.5f), Pointf.Origin);
 
 
         enemies = new ArrayList<>();
@@ -115,8 +117,8 @@ public class GameScene extends Scene {
     }
 
     private Text2D createPlayerMetaData() {
-        return new Text2D("Health: 100", new Pointf(55f, 110f))
-                .setFont(new Font("Consolas", Font.BOLD, 32));
+        return new Text2D("Health: 100", new Pointf(27.5f, 55f))
+                .setFont(new Font("Consolas", Font.BOLD, 16));
     }
 
     private Polygon2D createPlayerHealthBar() {
@@ -137,6 +139,7 @@ public class GameScene extends Scene {
         for (int i = 0; i < enemyCount; i++) {
             Model2D enemy = createEnemy();
             enemy.initBehaviors();
+            enemy.scale(new Pointf(-0.5f), Pointf.Origin);
             enemies.add(enemy);
         }
 

@@ -27,11 +27,11 @@ public class LoseScene extends Scene {
         GameScene gameScene = FastJEngine.<SceneManager>getLogicManager().getScene(SceneNames.GameSceneName);
         int waveNumber = gameScene.getWaveNumber();
 
-        loseText = new Text2D("You Lost...", new Pointf(300f, 375f))
-                .setFont(new Font("Consolas", Font.PLAIN, 96))
+        loseText = new Text2D("You Lost...", new Pointf(150f, 187.5f))
+                .setFont(new Font("Consolas", Font.PLAIN, 48))
                 .setColor(Color.red);
-        deathInfo = new Text2D("You died on wave: " + waveNumber, new Pointf(500f, 400f))
-                .setFont(new Font("Consolas", Font.PLAIN, 32));
+        deathInfo = new Text2D("You died on wave: " + waveNumber, new Pointf(250f, 205f))
+                .setFont(new Font("Consolas", Font.PLAIN, 16));
 
         loseText.addAsGameObject(this);
         deathInfo.addAsGameObject(this);
