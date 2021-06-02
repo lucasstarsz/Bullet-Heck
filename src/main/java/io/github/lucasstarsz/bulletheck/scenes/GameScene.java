@@ -44,7 +44,6 @@ public class GameScene extends Scene {
 
     @Override
     public void load(Display display) {
-        FastJEngine.log("load");
         playerMetadata = createPlayerMetaData();
         playerHealthBar = createPlayerHealthBar();
         PlayerHealthBar playerHealthBarScript = new PlayerHealthBar(playerMetadata, this);
@@ -89,7 +88,6 @@ public class GameScene extends Scene {
 
     @Override
     public void unload(Display display) {
-        FastJEngine.log("unload");
         if (player != null) {
             player.destroy(this);
             player = null;
@@ -115,6 +113,7 @@ public class GameScene extends Scene {
 
         AudioManager.getAudio(FilePaths.BackgroundMusicAudioPath).pause();
         setInitialized(false);
+        reset();
     }
 
     @Override

@@ -28,7 +28,6 @@ public class LoseScene extends Scene {
 
     @Override
     public void load(Display display) {
-
         GameScene gameScene = FastJEngine.<SceneManager>getLogicManager().getScene(SceneNames.GameSceneName);
         int waveNumber = gameScene.getWaveNumber();
 
@@ -82,6 +81,7 @@ public class LoseScene extends Scene {
         }
 
         setInitialized(false);
+        reset();
     }
 
     @Override
