@@ -1,6 +1,5 @@
 package io.github.lucasstarsz.bulletheck.scenes;
 
-import tech.fastj.engine.FastJEngine;
 import tech.fastj.math.Maths;
 import tech.fastj.math.Pointf;
 import tech.fastj.graphics.Display;
@@ -11,6 +10,8 @@ import tech.fastj.graphics.game.Text2D;
 import tech.fastj.graphics.util.DrawUtil;
 import tech.fastj.graphics.util.PsdfUtil;
 
+import tech.fastj.systems.audio.Audio;
+import tech.fastj.systems.audio.AudioManager;
 import tech.fastj.systems.control.Scene;
 
 import java.awt.Color;
@@ -64,11 +65,14 @@ public class GameScene extends Scene {
 
         // scale all content down by 50%
         player.scale(new Pointf(-0.5f), Pointf.Origin);
-        playerHealthBar.scale(new Pointf(-0.5f), Pointf.Origin);
 
 
         enemies = new ArrayList<>();
         newWave();
+
+        Audio backgroundMusic = AudioManager.getAudio(FilePaths.BackgroundMusicAudioPath);
+        backgroundMusic.setLoopCount(Audio.ContinuousLoop);
+        backgroundMusic.play();
     }
 
     @Override
@@ -95,6 +99,8 @@ public class GameScene extends Scene {
         }
 
         enemyCount = 0;
+
+        AudioManager.getAudio(FilePaths.BackgroundMusicAudioPath).stop();
     }
 
     @Override
@@ -142,8 +148,6 @@ public class GameScene extends Scene {
             enemy.scale(new Pointf(-0.5f), Pointf.Origin);
             enemies.add(enemy);
         }
-
-        FastJEngine.log("New wave of " + enemyCount + " enemies!");
     }
 
     private int calculateEnemyCount(int wave) {

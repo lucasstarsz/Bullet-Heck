@@ -4,17 +4,20 @@ import tech.fastj.engine.FastJEngine;
 import tech.fastj.math.Point;
 import tech.fastj.graphics.Display;
 
+import tech.fastj.systems.audio.AudioManager;
 import tech.fastj.systems.control.SceneManager;
 
 import java.awt.Color;
 
 import io.github.lucasstarsz.bulletheck.scenes.GameScene;
 import io.github.lucasstarsz.bulletheck.scenes.LoseScene;
+import io.github.lucasstarsz.bulletheck.util.FilePaths;
 
 public class Main extends SceneManager {
 
     @Override
     public void init(Display display) {
+        AudioManager.loadAudio(FilePaths.BackgroundMusicAudioPath);
         GameScene gameScene = new GameScene();
         this.addScene(gameScene);
         this.setCurrentScene(gameScene);
