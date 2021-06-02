@@ -1,5 +1,6 @@
 package io.github.lucasstarsz.bulletheck.scenes;
 
+import tech.fastj.engine.FastJEngine;
 import tech.fastj.math.Maths;
 import tech.fastj.math.Pointf;
 import tech.fastj.graphics.Display;
@@ -43,6 +44,7 @@ public class GameScene extends Scene {
 
     @Override
     public void load(Display display) {
+        FastJEngine.log("load");
         playerMetadata = createPlayerMetaData();
         playerHealthBar = createPlayerHealthBar();
         PlayerHealthBar playerHealthBarScript = new PlayerHealthBar(playerMetadata, this);
@@ -68,15 +70,26 @@ public class GameScene extends Scene {
 
 
         enemies = new ArrayList<>();
+        wave = 0;
         newWave();
 
         Audio backgroundMusic = AudioManager.getAudio(FilePaths.BackgroundMusicAudioPath);
         backgroundMusic.setLoopCount(Audio.ContinuousLoop);
-        backgroundMusic.play();
+        backgroundMusic.setLoopPoints(Audio.LoopFromStart, Audio.LoopAtEnd);
+        backgroundMusic.setPlaybackPosition(0L);
+        switch (backgroundMusic.getCurrentPlaybackState()) {
+            case Paused:
+                backgroundMusic.resume();
+                break;
+            case Stopped:
+                backgroundMusic.play();
+                break;
+        }
     }
 
     @Override
     public void unload(Display display) {
+        FastJEngine.log("unload");
         if (player != null) {
             player.destroy(this);
             player = null;
@@ -100,7 +113,8 @@ public class GameScene extends Scene {
 
         enemyCount = 0;
 
-        AudioManager.getAudio(FilePaths.BackgroundMusicAudioPath).stop();
+        AudioManager.getAudio(FilePaths.BackgroundMusicAudioPath).pause();
+        setInitialized(false);
     }
 
     @Override
