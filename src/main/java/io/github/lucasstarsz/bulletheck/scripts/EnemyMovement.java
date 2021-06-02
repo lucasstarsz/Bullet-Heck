@@ -1,14 +1,14 @@
 package io.github.lucasstarsz.bulletheck.scripts;
 
-import io.github.lucasstarsz.fastj.engine.FastJEngine;
-import io.github.lucasstarsz.fastj.math.Pointf;
-import io.github.lucasstarsz.fastj.graphics.Drawable;
-import io.github.lucasstarsz.fastj.graphics.game.GameObject;
-import io.github.lucasstarsz.fastj.graphics.game.Model2D;
-import io.github.lucasstarsz.fastj.graphics.game.Polygon2D;
+import tech.fastj.engine.FastJEngine;
+import tech.fastj.math.Pointf;
+import tech.fastj.graphics.Drawable;
+import tech.fastj.graphics.game.GameObject;
+import tech.fastj.graphics.game.Model2D;
+import tech.fastj.graphics.game.Polygon2D;
 
-import io.github.lucasstarsz.fastj.systems.behaviors.Behavior;
-import io.github.lucasstarsz.fastj.systems.tags.TagManager;
+import tech.fastj.systems.behaviors.Behavior;
+import tech.fastj.systems.tags.TagManager;
 
 import java.util.List;
 

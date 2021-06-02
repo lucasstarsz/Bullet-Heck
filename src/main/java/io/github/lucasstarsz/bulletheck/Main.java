@@ -1,20 +1,20 @@
 package io.github.lucasstarsz.bulletheck;
 
-import io.github.lucasstarsz.fastj.engine.FastJEngine;
-import io.github.lucasstarsz.fastj.math.Point;
-import io.github.lucasstarsz.fastj.graphics.Display;
+import tech.fastj.engine.FastJEngine;
+import tech.fastj.math.Point;
+import tech.fastj.graphics.Display;
 
-import io.github.lucasstarsz.fastj.systems.control.LogicManager;
+import tech.fastj.systems.control.SceneManager;
 
 import java.awt.Color;
 
 import io.github.lucasstarsz.bulletheck.scenes.GameScene;
 import io.github.lucasstarsz.bulletheck.scenes.LoseScene;
 
-public class Main extends LogicManager {
+public class Main extends SceneManager {
 
     @Override
-    public void setup(Display display) {
+    public void init(Display display) {
         GameScene gameScene = new GameScene();
         this.addScene(gameScene);
         this.setCurrentScene(gameScene);
@@ -30,8 +30,8 @@ public class Main extends LogicManager {
 
     public static void main(String[] args) {
         FastJEngine.init("Simple Bullet Hell", new Main());
-        FastJEngine.setTargetFPS(30);
-        FastJEngine.configureViewerResolution(new Point(800, 450));
+        FastJEngine.setTargetFPS(15);
+        FastJEngine.configureViewerResolution(new Point(640, 360));
         FastJEngine.run();
     }
 }

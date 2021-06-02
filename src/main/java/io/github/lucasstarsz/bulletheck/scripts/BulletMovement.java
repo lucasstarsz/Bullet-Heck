@@ -1,10 +1,10 @@
 package io.github.lucasstarsz.bulletheck.scripts;
 
-import io.github.lucasstarsz.fastj.engine.FastJEngine;
-import io.github.lucasstarsz.fastj.math.Pointf;
-import io.github.lucasstarsz.fastj.graphics.game.GameObject;
+import tech.fastj.engine.FastJEngine;
+import tech.fastj.math.Pointf;
+import tech.fastj.graphics.game.GameObject;
 
-import io.github.lucasstarsz.fastj.systems.behaviors.Behavior;
+import tech.fastj.systems.behaviors.Behavior;
 
 import io.github.lucasstarsz.bulletheck.scenes.GameScene;
 

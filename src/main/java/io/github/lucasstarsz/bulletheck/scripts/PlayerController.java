@@ -1,11 +1,11 @@
 package io.github.lucasstarsz.bulletheck.scripts;
 
-import io.github.lucasstarsz.fastj.math.Pointf;
-import io.github.lucasstarsz.fastj.graphics.game.GameObject;
+import tech.fastj.math.Pointf;
+import tech.fastj.graphics.game.GameObject;
 
-import io.github.lucasstarsz.fastj.systems.behaviors.Behavior;
-import io.github.lucasstarsz.fastj.systems.input.keyboard.Keyboard;
-import io.github.lucasstarsz.fastj.systems.input.keyboard.Keys;
+import tech.fastj.systems.behaviors.Behavior;
+import tech.fastj.systems.input.keyboard.Keyboard;
+import tech.fastj.systems.input.keyboard.Keys;
 
 public class PlayerController implements Behavior {
 

@@ -1,12 +1,12 @@
 package io.github.lucasstarsz.bulletheck.scenes;
 
-import io.github.lucasstarsz.fastj.engine.FastJEngine;
-import io.github.lucasstarsz.fastj.math.Pointf;
-import io.github.lucasstarsz.fastj.graphics.Display;
-import io.github.lucasstarsz.fastj.graphics.game.Text2D;
+import tech.fastj.engine.FastJEngine;
+import tech.fastj.math.Pointf;
+import tech.fastj.graphics.Display;
+import tech.fastj.graphics.game.Text2D;
 
-import io.github.lucasstarsz.fastj.systems.control.LogicManager;
-import io.github.lucasstarsz.fastj.systems.control.Scene;
+import tech.fastj.systems.control.Scene;
+import tech.fastj.systems.control.SceneManager;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,7 +24,7 @@ public class LoseScene extends Scene {
 
     @Override
     public void load(Display display) {
-        GameScene gameScene = (GameScene) FastJEngine.getLogicManager().getScene(SceneNames.GameSceneName);
+        GameScene gameScene = FastJEngine.<SceneManager>getLogicManager().getScene(SceneNames.GameSceneName);
         int waveNumber = gameScene.getWaveNumber();
 
         loseText = new Text2D("You Lost...", new Pointf(300f, 375f))

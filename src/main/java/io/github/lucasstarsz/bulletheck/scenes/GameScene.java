@@ -1,20 +1,20 @@
 package io.github.lucasstarsz.bulletheck.scenes;
 
-import io.github.lucasstarsz.fastj.engine.FastJEngine;
-import io.github.lucasstarsz.fastj.math.Maths;
-import io.github.lucasstarsz.fastj.math.Pointf;
-import io.github.lucasstarsz.fastj.graphics.Display;
-import io.github.lucasstarsz.fastj.graphics.DrawUtil;
-import io.github.lucasstarsz.fastj.graphics.game.GameObject;
-import io.github.lucasstarsz.fastj.graphics.game.Model2D;
-import io.github.lucasstarsz.fastj.graphics.game.Polygon2D;
-import io.github.lucasstarsz.fastj.graphics.game.Text2D;
+import tech.fastj.engine.FastJEngine;
+import tech.fastj.math.Maths;
+import tech.fastj.math.Pointf;
+import tech.fastj.graphics.Display;
+import tech.fastj.graphics.game.GameObject;
+import tech.fastj.graphics.game.Model2D;
+import tech.fastj.graphics.game.Polygon2D;
+import tech.fastj.graphics.game.Text2D;
+import tech.fastj.graphics.util.DrawUtil;
+import tech.fastj.graphics.util.PsdfUtil;
 
-import io.github.lucasstarsz.fastj.systems.control.Scene;
+import tech.fastj.systems.control.Scene;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,7 +126,7 @@ public class GameScene extends Scene {
     }
 
     private Model2D createPlayer() {
-        return new Model2D(DrawUtil.load2DModel(FilePaths.PathToResources + "player.psdf"));
+        return new Model2D(PsdfUtil.loadPsdf(FilePaths.PathToResources + "player.psdf"));
     }
 
     private void newWave() {
@@ -151,7 +151,7 @@ public class GameScene extends Scene {
                 Maths.randomAtEdge(-500f, 1220f)
         );
 
-        return (Model2D) new Model2D(DrawUtil.load2DModel(FilePaths.PathToResources + "enemy.psdf"))
+        return (Model2D) new Model2D(PsdfUtil.loadPsdf(FilePaths.PathToResources + "enemy.psdf"))
                 .setTranslation(randomPosition)
                 .addBehavior(new EnemyMovement(this), this)
                 .addAsGameObject(this);

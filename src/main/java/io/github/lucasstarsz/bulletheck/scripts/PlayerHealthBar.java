@@ -1,14 +1,14 @@
 package io.github.lucasstarsz.bulletheck.scripts;
 
-import io.github.lucasstarsz.fastj.engine.FastJEngine;
-import io.github.lucasstarsz.fastj.math.Pointf;
-import io.github.lucasstarsz.fastj.graphics.DrawUtil;
-import io.github.lucasstarsz.fastj.graphics.game.GameObject;
-import io.github.lucasstarsz.fastj.graphics.game.Polygon2D;
-import io.github.lucasstarsz.fastj.graphics.game.Text2D;
+import tech.fastj.engine.FastJEngine;
+import tech.fastj.math.Pointf;
+import tech.fastj.graphics.game.GameObject;
+import tech.fastj.graphics.game.Polygon2D;
+import tech.fastj.graphics.game.Text2D;
+import tech.fastj.graphics.util.DrawUtil;
 
-import io.github.lucasstarsz.fastj.systems.behaviors.Behavior;
-import io.github.lucasstarsz.fastj.systems.control.LogicManager;
+import tech.fastj.systems.behaviors.Behavior;
+import tech.fastj.systems.control.SceneManager;
 
 import java.util.Objects;
 import java.util.concurrent.Executors;
@@ -69,7 +69,7 @@ public class PlayerHealthBar implements Behavior {
 
             if (health == 0) {
                 FastJEngine.runAfterUpdate(() -> {
-                    LogicManager sceneManager = FastJEngine.getLogicManager();
+                    SceneManager sceneManager = FastJEngine.getLogicManager();
                     sceneManager.switchScenes(SceneNames.LoseSceneName);
                     sceneManager.getScene(SceneNames.GameSceneName).unload(FastJEngine.getDisplay());
                 });
