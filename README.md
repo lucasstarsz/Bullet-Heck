@@ -13,4 +13,4 @@ TBA
 
 
 ## Relevant Dependencies
-FastJ - https://github/com/lucasstarsz/FastJ
+FastJ - https://github.com/fastjengine/FastJ
